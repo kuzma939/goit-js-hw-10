@@ -1,0 +1,34 @@
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+const form = document.querySelector(".form")
+form.addEventListener("submit", execution)
+function execution(event) {
+    event.preventDefault();
+    const delay = form.delay.value;
+    const state = form.state.value;
+    const delayNum = Number(delay);
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(state === `fulfilled`) {
+                resolve(`✅ Fulfilled promise in ${delay}ms`);
+            } else /*if(state === 'rejected')*/{
+                reject(`❌ Rejected promise in ${delay}ms`);
+            }
+        }, delayNum)
+            
+        });
+        promise
+    .then(delay => {
+      iziToast.success({
+        message: `✅ Fulfilled promise in ${delay}ms`,
+        position: 'bottomCenter',
+      });
+    })
+    .catch(delay => {
+      iziToast.error({
+        message: `❌ Rejected promise in ${delay}ms`,
+        position: 'bottomCenter',
+      });
+    });
+   // form.reset();
+};

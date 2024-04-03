@@ -11,6 +11,7 @@ const dataMinutes = document.querySelector('[data-minutes]');
 const dataSeconds = document.querySelector('[data-seconds]');
 startButton.addEventListener("click", startingTheTimer);
 let userSelectedDate;
+
 const options = flatpickr(dateTime, {
     enableTime: true,
     time_24hr: true,
@@ -23,6 +24,8 @@ const options = flatpickr(dateTime, {
              iziToast.show({
                  message: 'Please choose a date in the future',
                  position: 'topRight',
+                 backgroundColor: '#ef4040',
+                 messageColor: '#fff',
                  });
                  startButton.disabled = true;
           } else {
@@ -31,13 +34,14 @@ const options = flatpickr(dateTime, {
     },
   });
 
-   
+ 
   function startingTheTimer() {
+   
+    /*isActive = true;
     if (isActive) {
         return;
     } 
-       isActive = true;
-       input.disabled = true;
+       input.disabled = true;*/
        setInterval(() => {
            const currentDate = new Date();
            const remainingTime = userSelectedDate - currentDate;
