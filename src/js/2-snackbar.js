@@ -9,7 +9,7 @@ function execution(event) {
     const delayNum = Number(delay);
     const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            if(state === `fulfilled`) {
+            if(state === 'fulfilled') {
                 resolve(delayNum);
             } else if(state === 'rejected') {
                 reject(delayNum);
